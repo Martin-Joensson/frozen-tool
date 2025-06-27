@@ -1,0 +1,154 @@
+@import "tailwindcss";
+
+@theme {
+  --font-poppins: Poppins, sans-serif;
+
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 40rem;
+  --breakpoint-laptop: 64rem;
+  --breakpoint-desktop: 80rem;
+  --breakpoint-wide: 100rem;
+
+  --text-color-light-links: rgba(255, 255, 255, 0.87);
+  --text-color-burger-links: #9966cc;
+  --background-color-header: rgba(255, 255, 255, 0.97);
+
+  --background-color-hamburger: rgba(255, 255, 255, 0.87);
+}
+
+@utility scrollbar-hidden {
+  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+hr {
+  border-color: #aaa;
+  border-style: solid;
+  border-width: 2px 0 0;
+}
+
+a {
+  font-weight: 500;
+  color: #663399;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #552288;
+}
+
+#burgerLinks {
+  display: none;
+}
+
+#buttonLink {
+  color: #ffffff;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 2.2em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 1.8em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #7744aa;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* @media print {
+  body {
+    visibility: hidden;
+  }
+  #printable {
+    visibility: visible;
+  }
+} */
+
+.buttonLinkAnimate {
+  border-color: #181818;
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-delay: 7s;
+  animation-duration: 20s;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Bio Comp */
+.bioComp {
+  border: 1px solid red;
+  margin-bottom: 1em;
+}
+
+@keyframes blink {
+  0%,
+  2%,
+  4%,
+  6% {
+    border-color: #181818;
+  }
+  1%,
+  3%,
+  5% {
+    border-color: #ccc;
+  }
+}
