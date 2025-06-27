@@ -11,7 +11,7 @@
 
   --text-color-light-links: rgba(255, 255, 255, 0.87);
   --text-color-burger-links: #9966cc;
-  --background-color-header: rgba(255, 255, 255, 0.97);
+  --background-color-header: rgba(255, 255, 255, 1);
 
   --background-color-hamburger: rgba(255, 255, 255, 0.87);
 }
@@ -43,12 +43,11 @@ hr {
 }
 
 a {
-  font-weight: 500;
-  color: #663399;
+  color: #336699;
   text-decoration: inherit;
 }
 a:hover {
-  color: #552288;
+  color: #225588;
 }
 
 #burgerLinks {
