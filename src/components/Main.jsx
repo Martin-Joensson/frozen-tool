@@ -7,11 +7,8 @@ export const Main = () => {
       <ul>
         <li>Wizard Creator</li>
         <li>Warband Creator</li>
-              <li>Spellbook</li>
-              
-          </ul>
-          
-          <SpellCard />
+        <li>Spellbook</li>
+      </ul>
     </div>
   );
 };
