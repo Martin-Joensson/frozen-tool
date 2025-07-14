@@ -1,5 +1,13 @@
 import { useState, useEffect } from "react";
-
+import {
+  Sword,
+  BowAndArrow,
+  Coins,
+  Brain,
+  WalkingBoot,
+  Heart,
+  Shield,
+} from "../components/icons/Icons.jsx";
 import frostgrave from "../assets/frostgrave.json";
 import { checkSchool } from "./checkSchool";
 

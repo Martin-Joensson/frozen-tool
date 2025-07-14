@@ -16,10 +16,6 @@
   --background-color-hamburger: rgba(255, 255, 255, 0.87);
 }
 
-@utility scrollbar-hidden {
-  @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
-}
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -122,20 +118,6 @@ button:focus-visible {
   animation-iteration-count: infinite;
   animation-delay: 7s;
   animation-duration: 20s;
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-/* Bio Comp */
-.bioComp {
-  border: 1px solid red;
-  margin-bottom: 1em;
 }
 
 @keyframes blink {

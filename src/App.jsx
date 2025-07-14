@@ -6,7 +6,7 @@ export const App = () => {
   return (
     <div className="flex relative flex-col min-h-screen">
       <Header />
-      <main className="flex flex-grow flex-1 justify-center">
+      <main className="flex flex-grow flex-1 m-auto">
         <ContentRoutes />
       </main>
       <Footer />

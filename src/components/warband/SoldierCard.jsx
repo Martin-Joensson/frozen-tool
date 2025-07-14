@@ -1,161 +1,84 @@
 import { useState, useEffect } from "react";
+import {
+  Sword,
+  BowAndArrow,
+  Coins,
+  Brain,
+  WalkingBoot,
+  Heart,
+  Shield,
+} from "../icons/Icons.jsx";
 
 export const SoldierCard = ({ soldier }) => {
-  // "name": "Marksman",
-  // "class": "Marksman",
-  // "move": 5,
-  // "fight": 2,
-  // "shoot": 2,
-  // "armour": 12,
-  // "will": 1,
-  // "health": 12,
-  // "cost": 125,
-  // "gear": "Crossbow, Quiver, Hand Weapon, Heavy Armour",
-  // "notes": "",
-  // "type": "Specialist"
+  const checkCost = (cost) => {
+    if (cost === 0) {
+      return "free";
+    } else {
+      return cost;
+    }
+  };
 
   return (
-    <div className="bg-blue-100 text-black rounded-3xl flex flex-col">
+    <div className="bg-gray-100 text-black rounded-3xl flex flex-col">
       <div className="flex justify-between">
         <div className="p-2 text-2xl">
           <p>{soldier.name}</p>
           <hr></hr>
           <p className="text-lg"> {soldier.type}</p>
         </div>
-        <div className="bg-amber-500 rounded-bl-2xl rounded-tr-2xl font-black text-3xl text-white text-center content-center">
-          Health: {soldier.health}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill="currentColor"
-              d="M8 5.5L6.32 3.82a2.375 2.375 0 0 0-3.358 3.36L8 12.216l5.038-5.038A2.375 2.375 0 1 0 9.68 3.821zm0 9.546L1.548 8.594a4.375 4.375 0 0 1 6.187-6.188L8 2.672l.265-.266a4.375 4.375 0 1 1 6.187 6.188z"
-            />
-          </svg>
+        <div className="bg-gray-500 rounded-bl-2xl min-w-16 rounded-tr-2xl p-2 font-black text-3xl text-white text-center flex flex-col items-center">
+          <span>
+            <Heart />
+          </span>
+          <span>{soldier.health}</span>
         </div>
       </div>
       <div className="Statline flex flex-col">
-        <div className="flex justify-center">
-          <div className="flex flex-col items-center border-2 rounded-2xl m-2 p-2">
-            <p>Move:</p> <p> {soldier.move}</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 512 512"
-            >
-              <path
-                fill="currentColor"
-                d="M272.5 18.906c-12.775.17-26.23 2.553-40.344 7.594c-30.165 55.31-68.313 120.904-125.72 178.5c-21.19 21.26-39.23 44.94-52.28 68.313c1.294 6.312 4.984 11.65 10.72 17.406c10.992 11.032 30.86 21.618 54.593 33.25c46.313 22.695 107.284 50.39 146.374 108.467l195.625.032c-20.198-70.834-100.276-101.12-159.064-83.94c-.073.03-.145.066-.22.095c-1.61.633-3.27 1.138-4.967 1.563c-.024.005-.04.025-.064.03c-8.86 2.204-18.82 1.68-29.125-.406c-24.79-5.02-52.76-19.695-61.342-45.687c-28.615-86.673 16.65-179.742 78.156-223.28c23.064-16.328 49.06-25.848 74.47-24.47c.144.008.29.023.436.03c-24.19-22.74-53.33-37.95-87.25-37.5zm81.75 56c-19.213.01-39.414 7.59-58.625 21.188c-54.644 38.682-96.652 125.024-71.188 202.156c5.127 15.53 27.25 29.162 47.282 33.22c10.015 2.027 19.218 1.518 23.717-.283c2.25-.9 3.173-1.84 3.594-2.562c.422-.72.81-1.663.25-4.375c-9.08-44.167-2.743-84.61 22.533-114.47c23.586-27.863 62.753-45.462 117.406-50.686c-15.014-47.145-37.47-71.226-61.314-80.03c-6.407-2.368-13.032-3.706-19.812-4.064a73.352 73.352 0 0 0-3.844-.094zM43.78 294.22c-5.405 12.554-9.136 24.756-10.905 36.186c7.178 27.76 51.898 55.43 91.094 61.344c1.703-5.973 5.832-11.475 10.28-14.25c51.01 28.844 86.18 60.704 102 101h229.594c.697-9.613.44-18.712-.625-27.344l-204.314-.03h-5.125l-2.75-4.345c-35.405-55.575-93.93-82.58-141.78-106.03c-23.925-11.724-45.17-22.336-59.625-36.844c-2.978-2.99-5.618-6.225-7.844-9.687z"
-              />
-            </svg>
+        <div className="flex justify-center text-2xl">
+          <div className="flex flex-col items-center border-2 rounded-xl m-2 p-2">
+            <p>
+              <WalkingBoot />
+            </p>{" "}
+            <p> {soldier.move}</p>
           </div>
-          <div className="Offence flex border-2 rounded-2xl m-2 p-2">
-            <div className="flex flex-col items-center">
-              <p>Fight:</p> <p> {soldier.fight}</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill="currentColor"
-                  d="m15.8.5l-.1-.2l-.2-.1c-.1 0-2.5-.8-4.2.9L4.6 7.7c-.9-.6-1.7-1.2-1.8-1l-.4.3c-.2.2.9 1.7 1.8 2.7l-2.5 3.4c-.3-.3-.8-.3-1.1 0l-.3.3c-.3.3-.3.8 0 1.1l1 1c.3.3.8.3 1.1 0l.3-.3c.3-.3.3-.8 0-1.1l3.5-2.5c1 .9 2.5 2 2.7 1.8l.4-.4c.1-.1-.4-1-1.1-1.8l6.7-6.7c1.7-1.5.9-3.9.9-4zm-8.1 10l-.8-.8l6.2-6.9L6.2 9l-.7-.7L12 1.8c1-1 2.3-.8 2.9-.7c.1.6.3 1.9-.7 2.8l-6.5 6.6z"
-                />
-              </svg>
+          <div className="Offence flex border-2 rounded-xl m-2 p-2">
+            <div className="flex flex-col items-center border-r-2 px-2">
+              <p>
+                <Sword />
+              </p>
+              <p> {soldier.fight}</p>
             </div>
-            <div className="flex flex-col items-center">
-              <p>Shoot:</p> <p> {soldier.shoot}</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 32 32"
-              >
-                <path
-                  fill="currentColor"
-                  d="m22.055 3.989l7.34-1.97c.34-.1.66.22.57.57l-1.97 7.34c-.09.35-.52.46-.77.21l-1.28-1.281l-1.37 1.37a11.08 11.08 0 0 1 1.698 3.043c.748 2.005.9 4.204.396 6.374a5.204 5.204 0 0 0 .8 4.18l.177-.179a.5.5 0 0 1 .708.708l-.236.235a2.943 2.943 0 0 1-.056 4.107a2.943 2.943 0 0 1-4.107.056l-.101.102a.5.5 0 0 1-.708-.708l.128-.127a11.168 11.168 0 0 1-.772-1.022l-11.015-.02l-2.492 2.491c-.7.7-1.84.7-2.55 0a1.793 1.793 0 0 1-.524-1.34a1.995 1.995 0 0 1-1.49-.585c-.42-.42-.614-.98-.583-1.53a1.792 1.792 0 0 1-1.323-.524c-.7-.71-.7-1.85 0-2.55l2.38-2.38L4.52 9.143a11.249 11.249 0 0 1-.533-.424l-.134.135a.5.5 0 1 1-.708-.708l.107-.106a2.943 2.943 0 0 1 .04-4.133a2.962 2.962 0 0 1 4.123-.03l.23-.23a.5.5 0 1 1 .708.707l-.172.171a5.15 5.15 0 0 0 4.152.78h.006a11.144 11.144 0 0 1 9.408 2.092l1.368-1.368l-1.271-1.27a.462.462 0 0 1 .21-.77ZM6.001 5.292a.962.962 0 0 0-1.304.038a.943.943 0 0 0-.03 1.295l1.334-1.333Zm-.593 2.007a9.063 9.063 0 0 0 7.82 1.796h.002a7.244 7.244 0 0 1 3.56.07l.5-1.822a9.144 9.144 0 0 0-4.497-.09a7.15 7.15 0 0 1-6.041-1.297L5.408 7.299Zm18.988 6.664l-1.764.648l.003.008a7.181 7.181 0 0 1 .243 4.139a9.062 9.062 0 0 0 1.452 7.367a.5.5 0 0 1 .128.173c.076.102.155.202.236.301l1.345-1.345a7.203 7.203 0 0 1-1.318-6.062a9.021 9.021 0 0 0-.323-5.223l-.002-.006Zm-5.828-1.527a5.169 5.169 0 0 0-.229-.216l-6.569 6.57l.005-.001l-6.69 6.69a1 1 0 0 0 1.328 1.473a2.28 2.28 0 0 1 .032-.034l6.7-6.7l-.004.029l6.612-6.613a5.327 5.327 0 0 0-.215-.228l-.97-.97Zm-2.31-1.344a5.245 5.245 0 0 0-2.577-.05c-2.821.658-5.713.2-8.136-1.22l.33 9.856c.179-.096.376-.157.58-.18l3.683-.491l7.38-7.38a5.33 5.33 0 0 0-1.26-.535Zm4.486 4.206a5.082 5.082 0 0 0-.395-.845l-7.426 7.426l-.488 3.66c-.017.152-.056.3-.115.44l9.586.017a11.073 11.073 0 0 1-.975-7.695l.001-.004a5.176 5.176 0 0 0-.069-2.67l-.119-.33Zm5.904 11.983a.943.943 0 0 0 .054-1.276l-1.33 1.33a.943.943 0 0 0 1.276-.054Zm-1.41-19.13l-1.415-1.415l-1.316 1.316c.076.072.151.145.225.22l.974.973c.072.073.144.147.214.222l1.317-1.316Z"
-                />
-              </svg>
+
+            <div className="flex flex-col items-center px-2">
+              <p>
+                <BowAndArrow />
+              </p>
+              <p> {soldier.shoot}</p>
             </div>
           </div>
-          <div className="Defence flex border-2 rounded-2xl m-2 p-2">
-            <div className="flex flex-col items-center">
-              <p>Armour:</p> <p> {soldier.armour}</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 17 17"
-              >
-                <path
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  d="m3.068 1.976l.005 6.042c0 4.988 5.948 7.961 5.948 7.961s5.95-2.807 5.95-7.977l.001-6.026S12.308.036 9.021.036c-3.289 0-5.953 1.94-5.953 1.94zm10.979 6.255c0 3.944-4.723 6.682-5.045 6.837v.015l-.015-.007l-.015.007v-.015c-.322-.155-5.045-2.893-5.045-6.837l-.004-5.664S6.181.992 8.972.979V.978l.015.001l.015-.001v.001c2.791.013 5.049 1.588 5.049 1.588l-.004 5.664zm-1.108.16c0 3.435-3.671 5.462-3.922 5.597V14s-.01-.004-.011-.006L8.994 14v-.013c-.251-.135-3.921-2.162-3.921-5.597l-.004-4.929s1.756-1.37 3.925-1.382h.023c2.17.012 3.924 1.382 3.924 1.382l-.002 4.93z"
-                />
-              </svg>
+          <div className="Defence flex border-2 rounded-xl m-2 p-2">
+            <div className="flex flex-col items-center border-r-2 px-2">
+              <p>
+                <Shield />
+              </p>
+              <p> {soldier.armour}</p>
             </div>
-            <div className="flex flex-col items-center">
-              <p>Will:</p> <p> {soldier.will}</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 48 48"
-              >
-                <mask id="ipSBrain0">
-                  <g fill="none" stroke="#fff">
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="4.667"
-                      d="M19.036 44c-.98-3.195-2.458-5.578-4.435-7.147c-2.965-2.353-7.676-.89-9.416-3.318c-1.74-2.428 1.219-6.892 2.257-9.526c1.039-2.634-3.98-3.565-3.394-4.313c.39-.499 2.927-1.937 7.609-4.316C12.987 7.794 17.9 4 26.398 4C39.144 4 44 14.806 44 21.68c0 6.872-5.88 14.276-14.256 15.873c-.749 1.09.331 3.24 3.24 6.447"
-                    />
-                    <path
-                      fill="#fff"
-                      fill-rule="evenodd"
-                      stroke-linejoin="round"
-                      stroke-width="4"
-                      d="M19.5 14.5c-.654 2.534-.46 4.314.583 5.339c1.042 1.024 2.818 1.695 5.328 2.01c-.57 3.269.125 4.802 2.083 4.6c1.958-.201 3.135-1.015 3.53-2.44c3.06.86 4.719.14 4.976-2.16c.385-3.45-1.475-6.201-2.238-6.201c-.762 0-2.738-.093-2.738-1.148s-2.308-1.65-4.391-1.65s-.83-1.405-3.69-.85c-1.907.37-3.055 1.203-3.443 2.5Z"
-                      clip-rule="evenodd"
-                    />
-                    <path
-                      stroke-linecap="round"
-                      stroke-width="4"
-                      d="M30.5 25.5c-1.017.631-2.412 1.68-3 2.5c-1.469 2.05-2.66 3.298-2.92 4.608"
-                    />
-                  </g>
-                </mask>
-                <path
-                  fill="currentColor"
-                  d="M0 0h48v48H0z"
-                  mask="url(#ipSBrain0)"
-                />
-              </svg>
+            <div className="flex flex-col items-center px-2">
+              <p>
+                <Brain />
+              </p>
+              <p> {soldier.will}</p>
             </div>
           </div>
         </div>
         <div className="p-2"> Gear: {soldier.gear} </div>
         {soldier.notes ? <div> Notes: {soldier.notes} </div> : null}
-        <div className="p-2 bg-amber-200 rounded-b-2xl text-amber-600 flex justify-center">
-          <p>Cost: {soldier.cost} gold</p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill="currentColor"
-              d="M10.5 0C7.46 0 5 .88 5 2v2c-3 .1-5 .94-5 2v6c0 1.09 2.46 2 5.5 2h.067c.732 0 1.45-.055 2.153-.16c.698 1.305 2.094 2.158 3.69 2.158a4.382 4.382 0 0 0 4.224-3.217c.209-.199.344-.442.367-.717V2c0-1.12-2.46-2-5.5-2zm-5 5C8 5 10 5.45 10 6S8 7 5.5 7S1 6.55 1 6s2-1 4.5-1zm0 8c-2.71 0-4.25-.71-4.5-1v-.8a10.405 10.405 0 0 0 4.522.799c.508-.001 1.03-.03 1.544-.085c-.043.371.022.712.123 1.037c-.452.021-.967.051-1.488.051L5.49 13zm1.57-2.09c-.467.057-1.008.09-1.556.09H5.5c-2.709 0-4.249-.71-4.499-1v-.84a10.41 10.41 0 0 0 4.518.84a14.496 14.496 0 0 0 1.897-.128c-.197.306-.291.654-.342 1.015zM5.5 9C2.79 9 1.25 8.29 1 8v-.9a10.41 10.41 0 0 0 4.518.84a10.548 10.548 0 0 0 4.551-.866l-.068.366a4.397 4.397 0 0 0-1.935 1.304C7.314 8.909 6.455 9 5.575 9h-.077zm5.91 6a3.41 3.41 0 1 1 0-6.82a3.41 3.41 0 0 1 0 6.82zM15 8c-.175.167-.385.3-.617.386c-.288-.244-.6-.46-.938-.634a7.615 7.615 0 0 0 1.593-.61L15 8zm0-2c-.24.31-1.61.94-4 1V6h.011a9.963 9.963 0 0 0 4.053-.855L15 6zm0-2c-.25.33-1.79 1-4.5 1h-.23a9.073 9.073 0 0 0-4.169-1H6v-.9a10.41 10.41 0 0 0 4.518.84a10.548 10.548 0 0 0 4.551-.866L15.001 4zm-4.5-1C8 3 6 2.55 6 2s2-1 4.5-1s4.5.45 4.5 1s-2 1-4.5 1z"
-            />
-            <path fill="currentColor" d="M10.5 11h.5v3h1V9h-.5l-1 2z" />
-          </svg>
-        </div>
+      </div>
+      <div className="p-2 bg-gray-200 rounded-b-2xl  text-amber-600 flex gap-2 items-center justify-center">
+        <p>
+          <Coins />
+        </p>
+        <p> {checkCost(soldier.cost)} gold</p>
       </div>
     </div>
   );
